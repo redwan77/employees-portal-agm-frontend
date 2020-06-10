@@ -1,0 +1,15 @@
+.page-item {
+    width: 90px !important;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.page-item :hover {
+    background-color: rgb(122, 122, 122) !important;
+    color: rgb(247, 245, 245)
+}
+
+table tbody tr td {
+    width: 10px;
+}
