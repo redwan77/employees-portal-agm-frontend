@@ -1,0 +1,52 @@
+.navbar-brand span:first-child {
+    color: #08526d;
+    font-weight: bolder;
+}
+
+.navbar .navbar-nav li,
+.navbar .navbar-brand :hover {
+    cursor: pointer;
+}
+
+.navbar-brand span:last-child {
+    color: #ec1c23
+}
+
+.navbar {
+    padding: 0px !important;
+    margin-bottom: 10px;
+}
+
+.navbar .navbar-brand span {
+    font-size: 30px;
+}
+
+
+/* directchilde */
+
+.navbar span {
+    font-size: 26px;
+}
+
+.navbar-nav {
+    padding-top: 13px !important;
+    padding-bottom: 2px !important;
+}
+
+
+/* active linkes should be in : #ec1c23 */
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-left: 16px;
+    color: #08526d;
+    font-weight: bold;
+}
+
+.rounded-circle {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    padding: 0px !important;
+}

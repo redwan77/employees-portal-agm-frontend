@@ -1,0 +1,13 @@
+.form-container {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 90px;
+    border: rgb(148, 148, 148) solid 1px;
+    padding: 50px;
+    border-radius: 1%;
+}
+
+label {
+    font-size: large;
+}

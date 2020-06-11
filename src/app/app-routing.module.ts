@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
+
 
 const routes: Routes = [
+ 
   {
-    path :'admin',
-    loadChildren: () => import('./layout/admin/admin.module').then(m => m.AdminModule)
+    path :'user',
+    loadChildren: () => import('./a-1-user-layout/a-1-user-layout.module').then(m => m.A1UserLayoutModule)
   },
   {
-    path: 'record',
-    loadChildren:() => import('./components/user-record/user-record.module').then(m => m.UserRecordModule)
-  },
+    path: 'login',
+    component:LoginComponent
+  }
+  ,
   {
-    path: 'options',
-    loadChildren:() => import('./components/user-options/user-options.module').then(m => m.UserOptionsModule)
+    path:"**",
+    redirectTo:"/user"
+
   }
   
 ];
