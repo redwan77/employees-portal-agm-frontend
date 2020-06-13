@@ -41,13 +41,14 @@ const routes: Routes = [
       {
         path: 'options',
         component:OptionsListComponent
-      }
+      },
       {
-        path: '**',
-        redirectTo:'home'
+        path:'',
+        redirectTo:'home',
+        pathMatch:'full'
       }
     ]
-  }
+  },
 ];
 
 @NgModule({

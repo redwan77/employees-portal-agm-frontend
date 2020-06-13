@@ -4,22 +4,23 @@ import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
- 
   {
     path :'user',
     loadChildren: () => import('./a-1-user-layout/a-1-user-layout.module').then(m => m.A1UserLayoutModule)
   },
   {
+    path :'admin',
+    loadChildren: () => import('./a-2-admin-layout/a-2-admin-layout.module').then(m => m.A2AdminLayoutModule)
+  },
+  {
     path: 'login',
     component:LoginComponent
-  }
-  ,
+  },
   {
-    path:"**",
-    redirectTo:"/user"
-
+    path:'',
+    redirectTo:'/admin',
+    pathMatch :'full'
   }
-  
 ];
 
 @NgModule({
