@@ -1,5 +1,13 @@
 <app-navbar-admin></app-navbar-admin>
-<app-sidebar-admin></app-sidebar-admin>
-<div class="container">
-    <router-outlet></router-outlet>
+
+
+<div class="d-flex" id="wrapper">
+    <!-- sidebar wrapper -->
+    <app-sidebar-admin></app-sidebar-admin>
+    <!-- Page Content -->
+    <div id="page-content-wrapper" style="padding: 10px 20px;">
+        <div class="container-fluid" style="margin-top: 10px !important;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>

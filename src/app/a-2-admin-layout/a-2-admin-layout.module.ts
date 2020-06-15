@@ -11,10 +11,9 @@ import { AbsenceRequestsListComponent } from "./absence-requests-list/absence-re
 import { EmployeesStatusComponent } from "./employees-status/employees-status.component";
 import { AbsenceVerificationsListComponent } from "./absence-verifications-list/absence-verifications-list.component";
 import { MainComponent } from "./main/main.component";
-import { MonthlyRecordComponent } from './monthly-record/monthly-record.component';
-import { WeeklyRecordComponent } from './weekly-record/weekly-record.component';
-import { DailyRecordComponent } from './daily-record/daily-record.component';
-import { RecordHeaderComponent } from './record-header/record-header.component';
+
+import { EmployeesListComponent } from './employees-list/employees-list.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +26,8 @@ import { RecordHeaderComponent } from './record-header/record-header.component';
     EmployeesStatusComponent,
     AbsenceVerificationsListComponent,
     MainComponent,
-    WeeklyRecordComponent,
-    MonthlyRecordComponent,
-    DailyRecordComponent,
-    RecordHeaderComponent
-
-
+    EmployeesListComponent,
+    ConfigurationComponent
   ],
   imports: [CommonModule, A2AdminLayoutRoutingModule],
 })

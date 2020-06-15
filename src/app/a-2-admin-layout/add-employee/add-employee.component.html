@@ -1,3 +1,84 @@
-<p>
-  add-employee works!
-</p>
+<div class="cotainer" style="margin-top: 60px;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">Add an Employee</div>
+                <div class="card-body">
+                    <form name="my-form">
+                        <div class="form-group row">
+                            <label for="full_name" class="col-md-4 col-form-label text-md-right">First Name</label>
+                            <div class="col-md-6">
+                                <input type="text" id="full_name" class="form-control" name="full-name">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="full_name" class="col-md-4 col-form-label text-md-right">Last Name</label>
+                            <div class="col-md-6">
+                                <input type="text" id="full_name" class="form-control" name="full-name">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                            <div class="col-md-6">
+                                <input type="text" id="email_address" class="form-control" name="email-address">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                            <div class="col-md-6">
+                                <input type="text" id="phone_number" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="present_address" class="col-md-4 col-form-label text-md-right">Address</label>
+                            <div class="col-md-6">
+                                <input type="text" id="present_address" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="present_address" class="col-md-4 col-form-label text-md-right">Branch</label>
+                            <div class="col-md-6">
+                                <select style="width: 100%;" name="" class="form-control" id="present_address">
+                                <option [value]="">exmp</option>
+                              </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="present_address" class="col-md-4 col-form-label text-md-right">Project</label>
+                            <div class="col-md-6">
+                                <select style="width: 100%;" name="" class="form-control" id="present_address">
+                                  <option [value]="">exmp</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <!-- Default unchecked -->
+
+                        <div class="form-group row">
+                            <div class="custom-control custom-checkbox col-md-4  offset-md-4 pl-5">
+                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                <label class="custom-control-label" for="defaultUnchecked">Remote Employee</label>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-md-6 offset-md-6">
+                            <button type="submit" class="btn btn-lg btn-primary">
+                                  Add employee
+                                  </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

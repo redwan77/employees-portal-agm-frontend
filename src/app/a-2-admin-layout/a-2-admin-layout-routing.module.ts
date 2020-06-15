@@ -7,15 +7,26 @@ import { AbsenceRequestsListComponent } from './absence-requests-list/absence-re
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AddNotificationComponent } from './add-notification/add-notification.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
-import { DailyRecordComponent } from './daily-record/daily-record.component';
-import { WeeklyRecordComponent } from './weekly-record/weekly-record.component';
-import { MonthlyRecordComponent } from './monthly-record/monthly-record.component';
+import { EmployeesListComponent } from './employees-list/employees-list.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 const routes: Routes = [
   {
     path: "",
     component: MainComponent,
     children: [
+      {
+        path :'employees-record',
+        loadChildren: () => import('./emplyess-record/emplyess-record.module').then(m => m.EmplyessRecordModule)
+      },
+      {
+        path: "add-employee",
+        component: AddEmployeeComponent,
+      },
+      {
+        path: "configuration",
+        component: ConfigurationComponent,
+      },
       {
         path: "employees-status",
         component: EmployeesStatusComponent,
@@ -33,18 +44,6 @@ const routes: Routes = [
         component: AddEmployeeComponent,
       },
       {
-        path: 'daily',
-        component:DailyRecordComponent
-      },
-      {
-        path: 'weekly',
-        component:WeeklyRecordComponent
-      },
-      {
-        path: 'monthly',
-        component:MonthlyRecordComponent
-      },
-      {
         path: "add-notification",
         component: AddNotificationComponent,
       },
@@ -53,12 +52,19 @@ const routes: Routes = [
         component: EditEmployeeComponent,
       },
       {
+        path: "employees-list",
+        component: EmployeesListComponent,
+      },
+    
+      {
         path: "",
         redirectTo: "employees-status",
         pathMatch: "full",
       },
+      
     ],
   },
+  
 ];
 
 @NgModule({
