@@ -13,7 +13,6 @@ import { AbsenceVerificationsListComponent } from "./absence-verifications-list/
 import { MainComponent } from "./main/main.component";
 
 import { EmployeesListComponent } from './employees-list/employees-list.component';
-import { ConfigurationComponent } from './configuration/configuration.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { ConfigurationComponent } from './configuration/configuration.component'
     AbsenceVerificationsListComponent,
     MainComponent,
     EmployeesListComponent,
-    ConfigurationComponent
   ],
   imports: [CommonModule, A2AdminLayoutRoutingModule],
 })
