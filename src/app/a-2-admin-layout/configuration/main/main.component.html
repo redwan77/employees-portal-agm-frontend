@@ -4,14 +4,29 @@
     </agm-marker>
 </agm-map> -->
 <div class="contain">
-    <div class="menu">
-        <nav class="nav flex-column">
-            <a class="nav-link  " [routerLink]="['./time-configuration']" routerLinkActive="router-link-active"><i class="fas fa-sliders-h"></i> Timing Settings</a>
-            <a class="nav-link  " [routerLink]="['./geolocalisation-configuration']" routerLinkActive="router-link-active"><i class="fas fa-sliders-h"></i> work geolocalisation</a>
-            <a class="nav-link  "><i class="fas fa-sliders-h "></i> work mode</a>
-        </nav>
-    </div>
-    <div class="settings" style="padding-top: 50px;">
-        <router-outlet></router-outlet>
-    </div>
+  <div class="menu">
+    <nav class="nav flex-column">
+      <a
+        class="nav-link"
+        [routerLink]="['./time-configuration']"
+        routerLinkActive="router-link-active"
+        ><i class="fas fa-sliders-h"></i> Timing Settings</a
+      >
+      <a
+        class="nav-link"
+        [routerLink]="['./geolocalisation-configuration']"
+        routerLinkActive="router-link-active"
+        ><i class="fas fa-sliders-h"></i> work geolocalisation</a
+      >
+      <a
+        class="nav-link"
+        [routerLink]="['./work-mode']"
+        routerLinkActive="router-link-active"
+        ><i class="fas fa-sliders-h"></i> work mode</a
+      >
+    </nav>
+  </div>
+  <div class="settings" style="padding-top: 0px;">
+    <router-outlet></router-outlet>
+  </div>
 </div>

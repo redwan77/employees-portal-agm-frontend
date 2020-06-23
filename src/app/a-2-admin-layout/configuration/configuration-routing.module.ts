@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { TimingSettingsComponent } from './timing-settings/timing-settings.component';
 import { WorkGealocalisationComponent } from './work-gealocalisation/work-gealocalisation.component';
+import { WorkModeComponent } from './work-mode/work-mode.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,15 @@ const routes: Routes = [
       {
         path:'geolocalisation-configuration',
         component:WorkGealocalisationComponent
-      }
+      },
+      {
+        path:'work-mode',
+        component:WorkModeComponent
+      },
+      {
+        path:'**',
+       redirectTo:'time-configuration'
+      },
     ]
   }
 ];
