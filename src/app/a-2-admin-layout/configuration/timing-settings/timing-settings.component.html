@@ -1,86 +1,134 @@
-<div class="contain">
+<form
+  *ngIf="timingForm"
+  class="contain"
+  [formGroup]="timingForm"
+  (ngSubmit)="submitForm()"
+>
   <div>
-    <h2 class="text-center pt-3" style="font-style: italic; color: rgb(158, 158, 158);">
+    <h2
+      class="text-center pt-3"
+      style="font-style: italic; color: rgb(158, 158, 158);"
+    >
       Employees imputations Settings
     </h2>
   </div>
   <div class="cont mt-4" style="margin-left: auto; margin-right: auto;">
-   <div class="row mt-5">
+    <div class="row mt-5">
       <div class="col-1"></div>
       <div class="col-3">
         <p>Working</p>
       </div>
       <div class="col-3">
-        <input type="time" name="" class="form-control" />
+        <input
+          formControlName="startTime"
+          type="time"
+          name=""
+          class="form-control"
+        />
       </div>
       <div class="col-1">
         <p>to</p>
       </div>
       <div class="col-3">
-        <input type="time" name="" class="form-control" />
+        <input
+          formControlName="endTime"
+          type="time"
+          name=""
+          class="form-control"
+        />
       </div>
     </div>
   </div>
-  <div class="cont" style="margin-left: auto; margin-right: auto; ">
+  <div class="cont" style="margin-left: auto; margin-right: auto;">
     <div class="row mt-3">
       <div class="col-1"></div>
       <div class="col-5">
         <p>Margin(min)</p>
       </div>
       <div class="col-3">
-        <input type="text" name="" class="form-control" />
+        <input
+          formControlName="margin"
+          type="text"
+          name=""
+          class="form-control"
+        />
       </div>
     </div>
   </div>
   <div class="cont" style="margin-left: auto; margin-right: auto;">
-   <div class="row mt-3">
+    <div class="row mt-3">
       <div class="col-1"></div>
       <div class="col-5">
         <p>Theorical Day hours record</p>
       </div>
       <div class="col-3">
-        <input type="text" name="" class="form-control" />
+        <input
+          formControlName="theoricalDailyWorkedTime"
+          type="text"
+          name=""
+          class="form-control"
+        />
       </div>
     </div>
   </div>
   <div class="cont" style="margin-left: auto; margin-right: auto;">
-   <div class="row mt-3">
+    <div class="row mt-3">
       <div class="col-1"></div>
       <div class="col-5">
         <p>Theorical Week hours record</p>
       </div>
       <div class="col-3">
-        <input type="text" name="" class="form-control" />
+        <input
+          formControlName="theoricalWeeklyWorkedTime"
+          type="text"
+          name=""
+          class="form-control"
+        />
       </div>
     </div>
   </div>
   <div class="cont" style="margin-left: auto; margin-right: auto;">
-   <div class="row mt-3">
+    <div class="row mt-3">
       <div class="col-1"></div>
       <div class="col-5">
         <p>Theorical Month hours record</p>
       </div>
       <div class="col-3">
-        <input type="text" name="" class="form-control" />
+        <input
+          formControlName="theoricalMonthlyWorkedTime"
+          type="text"
+          name=""
+          class="form-control"
+        />
       </div>
     </div>
   </div>
 
-  <div class="cont" style="border: none;" >
+  <div class="cont" style="border: none;">
     <div class="row mt-2" style="border: none;">
       <div class="col-1"></div>
       <div class="col-5">
         <p>Activate Margin</p>
       </div>
       <div class="col-3" style="border: none;">
-        <input type="checkbox" style="border: none;" name="" class="form-control" />
+        <input
+          type="checkbox"
+          style="border: none;"
+          name=""
+          class="form-control"
+          formControlName="isMarginActivated"
+        />
       </div>
     </div>
   </div>
 
   <div class="d-flex justify-content-center mt-3">
-    <button class="btn btn-lg btn-success" style="width: 200px;">
+    <button
+      class="btn btn-lg btn-success"
+      style="width: 200px;"
+      [disabled]="timingForm.invalid"
+    >
       confirm
     </button>
   </div>
-</div>
+</form>

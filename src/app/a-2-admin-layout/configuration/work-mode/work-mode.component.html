@@ -1,42 +1,60 @@
-<div class="contain">
+<form *ngIf="form" [formGroup]="form" class="contain">
   <div>
-    <h2 class="text-center pt-3" style="font-style: italic; color: rgb(158, 158, 158);">
-     Work mode  Settings
+    <h2
+      class="text-center pt-3"
+      style="font-style: italic; color: rgb(158, 158, 158);"
+    >
+      Work mode Settings
     </h2>
   </div>
 
-
-  <div class="cont" style="border: none;" >
-    <div class="row  mt-5" style="border: none;">
+  <div class="cont" style="border: none;">
+    <div class="row mt-5" style="border: none;">
       <div class="col-1"></div>
       <div class="col-3">
         <p class="mb-0">Activate remote mode</p>
         <p>(Employees can impute workings days from anywhere)</p>
       </div>
       <div class="col-3" style="border: none;">
-        <input type="checkbox" style="border: none;" name="" class="form-control" />
+        <input
+          formControlName="isRemote"
+          type="checkbox"
+          style="border: none;"
+          name=""
+          class="form-control"
+        />
       </div>
     </div>
   </div>
-  <div class="cont" style="border: none;" >
-    <div class="row  mt-5" style="border: none;">
+  <div class="cont" style="border: none;">
+    <div class="row mt-5" style="border: none;">
       <div class="col-1"></div>
       <div class="col-3">
         <p class="mb-0">Activate holiday mode</p>
         <p>(Employees can not access thus impute workings days)</p>
       </div>
       <div class="col-3" style="border: none;">
-        <input type="checkbox" style="border: none;" name="" class="form-control" />
+        <input
+          formControlName="isHoliday"
+          type="checkbox"
+          style="border: none;"
+          name=""
+          class="form-control"
+        />
       </div>
     </div>
   </div>
- 
 
   <div class="d-flex justify-content-center pt-5">
-    <button class="btn btn-lg btn-success" style="width: 200px;">
+    <button
+      (click)="submit()"
+      [disabled]="!form"
+      class="btn btn-lg btn-success"
+      style="width: 200px;"
+    >
       <h3>
         confirm
       </h3>
     </button>
   </div>
-</div>
+</form>
