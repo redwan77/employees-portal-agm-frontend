@@ -1,74 +1,61 @@
 <div class="container-fluid" style="margin-top: 100px;">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>Name</th>
-                <th>Last Name</th>
-                <th>Branch</th>
-                <th>Project</th>
-                <th>Activate Remote Mode</th>
-                <th>Activate Holiday mode</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-                <td>John</td>
-                <td>12/02/2020</td>
-                <td>10:15</td>
-                <td>12:00</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                    <span>Remote | office</span>
-                  </label></td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                      <span>holiday | work</span>
-                  </label></td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>12/02/2020</td>
-                <td>10:15</td>
-                <td>12:00</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                    <span>Remote | office</span>
-                  </label></td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                      <span>holiday | work</span>
-                  </label></td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>12/02/2020</td>
-                <td>10:15</td>
-                <td>12:00</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                    <span>Remote | office</span>
-                  </label></td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                      <span>holiday | work</span>
-                  </label></td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>12/02/2020</td>
-                <td>10:15</td>
-                <td>12:00</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                    <span>Remote | office</span>
-                  </label></td>
-                <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                      <span>holiday | work</span>
-                  </label></td>
-            </tr>
-
-        </tbody>
+  <div *ngIf="employees">
+    <table [formGroup]="form" class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Activate Remote Mode</th>
+          <th>Activate Holiday mode</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody formArrayName="array">
+        <tr
+          *ngFor="let employee of form.controls.array.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <td>{{ employees[i].name }}</td>
+          <td>{{ employees[i].lastName }}</td>
+          <td>{{ employees[i].phoneNumber }}</td>
+          <td>{{ employees[i].email }}</td>
+          <td>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              formControlName="markAsRemote"
+              id="defaultCheck1"
+              (click)="checkWorkModeOption(i, 'markAsHoliday')"
+            />
+            <label class="form-check-label" for="defaultCheck1">
+              <span>Remote | office</span>
+            </label>
+          </td>
+          <td>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              formControlName="markAsHoliday"
+              id="defaultCheck2"
+              (click)="checkWorkModeOption(i, 'markAsRemote')"
+            />
+            <label class="form-check-label" for="defaultCheck2">
+              <span>holiday | work</span>
+            </label>
+          </td>
+          <td *ngIf="updateTrigger[i]">
+            <button
+              class="btn btn-success"
+              style="width: 100%;"
+              (click)="confirm(i)"
+            >
+              confirm
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
 </div>

@@ -13,6 +13,7 @@ import { AbsenceVerificationsListComponent } from "./absence-verifications-list/
 import { MainComponent } from "./main/main.component";
 
 import { EmployeesListComponent } from './employees-list/employees-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,9 @@ import { EmployeesListComponent } from './employees-list/employees-list.componen
     MainComponent,
     EmployeesListComponent,
   ],
-  imports: [CommonModule, A2AdminLayoutRoutingModule],
+  imports: [CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    A2AdminLayoutRoutingModule],
 })
-export class A2AdminLayoutModule {}
+export class A2AdminLayoutModule { }
