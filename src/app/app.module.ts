@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './shared/components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { httpInterceptorProviders } from './security/interceptor.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

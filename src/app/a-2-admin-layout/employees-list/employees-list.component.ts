@@ -3,6 +3,8 @@ import { EmployeeService } from '../shared/services/employee.service';
 import { EmployeeAddDTO } from '../shared/models/employee-add-DTO';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { WorkmodeConfigurationDTO } from '../shared/models/work-modeDTO';
+import { AthenticationService } from 'src/app/security/athentication.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employees-list',
@@ -17,13 +19,19 @@ export class EmployeesListComponent implements OnInit {
 
   constructor(
     private service: EmployeeService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private authenticationService: AthenticationService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    //if (this.authenticationService.getBasicAuthenticationCredentials() && this.authenticationService.getUserRole() != "ADMIN") {
     this.createForm();
-     
-    
+    // console.log(this.authenticationService.getBasicAuthenticationCredentials());
 
+    // }
+    // else
+    //  this.router.navigate(['../../login'], { relativeTo: this.activatedRoute });
   }
 
   public createForm() {
@@ -58,7 +66,7 @@ export class EmployeesListComponent implements OnInit {
     mode.isHoliday = (this.form.get('array') as FormArray).at(formGroupIndex).get('markAsHoliday').value;
     mode.isRemote = (this.form.get('array') as FormArray).at(formGroupIndex).get('markAsRemote').value;
 
-    
+
     this.service.updateEmployeeWorkMode(
       +(this.form.get('array') as FormArray).at(formGroupIndex).get('emplId').value
       , mode)
@@ -66,7 +74,7 @@ export class EmployeesListComponent implements OnInit {
         this.employees = [];
         this.updateTrigger = [];
         this.employees = data;
-        
+
         this.form.controls.array = this.fb.array([]);
 
         this.employees.forEach(e => {

@@ -14,10 +14,12 @@ export class AthenticationService {
   constructor() { }
 
   public setBasicAuthenticationCredentials(login: string, password: string) {
+    window.localStorage.removeItem(this.KEY);
     window.localStorage.setItem(this.KEY, window.btoa(login + ':' + password));
 
   }
   private setUserLogin(login: string) {
+    window.localStorage.removeItem(this.USER_LOGIN);
     window.localStorage.setItem(this.USER_LOGIN, login);
   }
 
@@ -30,6 +32,7 @@ export class AthenticationService {
   }
 
   public setUsername(username: string) {
+    window.localStorage.removeItem(this.USER_NAME);
     window.localStorage.setItem(this.USER_NAME, username);
   }
 
@@ -39,6 +42,7 @@ export class AthenticationService {
 
 
   public setUserRole(role: string) {
+    window.localStorage.removeItem(this.USER_ROLE);
     window.localStorage.setItem(this.USER_ROLE, role);
   }
 
@@ -47,6 +51,5 @@ export class AthenticationService {
     window.localStorage.removeItem(this.USER_LOGIN);
     window.localStorage.removeItem(this.USER_NAME);
     window.localStorage.removeItem(this.USER_ROLE);
-
   }
 }

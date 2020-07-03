@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     let auth = this.authenticationService.getBasicAuthenticationCredentials();
-    if (auth != null) {
+    if (auth) {
       if (this.authenticationService.getUserRole() == 'EMPLOYEE') {
         this.router.navigate(['../user'], { relativeTo: this.activatedRoute });
       }
@@ -60,7 +60,6 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log('unauthenticated user');
-
       }
     )
   }

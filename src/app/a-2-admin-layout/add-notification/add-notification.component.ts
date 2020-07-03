@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AthenticationService } from 'src/app/security/athentication.service';
 
 @Component({
   selector: 'app-add-notification',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNotificationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticationService: AthenticationService,
+    ) { }
 
   ngOnInit() {
+    this.authenticationService.logout();
   }
 
 }
