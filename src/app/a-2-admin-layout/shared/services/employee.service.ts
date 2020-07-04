@@ -11,10 +11,11 @@ import { WorkmodeConfigurationDTO } from '../models/work-modeDTO';
 })
 export class EmployeeService {
 
+
   constructor(private http: HttpClient) { }
 
   addEmployee(body: EmployeeAddDTO): Observable<SuccessMessage> {
-    return this.http.post<SuccessMessage>(API_KEY_EMPLOYEE + '/addEmployee', body);
+    return this.http.post<SuccessMessage>(API_KEY_EMPLOYEE + '/addEmployee', body );
   }
 
   getAllEmployees(): Observable<EmployeeAddDTO[]> {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AthenticationService } from 'src/app/security/athentication.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -7,11 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+ 
+
+  constructor(
+    private authenticationService: AthenticationService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('main');
-    
+    if (this.authenticationService.getBasicAuthenticationCredentials()) {
+    }
+    else
+      this.router.navigate(['../login'], { relativeTo: this.activatedRoute });
   }
 
 }

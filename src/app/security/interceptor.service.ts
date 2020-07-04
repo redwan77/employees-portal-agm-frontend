@@ -14,22 +14,20 @@ export class InterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (this.authService.getBasicAuthenticationCredentials()) {
-      const token = this.authService.getBasicAuthenticationCredentials();
 
-      let request = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'basic ' + token) });
+      const token = window.btoa(this.authService.getBasicAuthenticationCredentials());
 
-      console.log(request.headers);
+      const request = req.clone({ headers: req.headers.set("Authorization", 'basic ' + token) });
+
+      console.log(request.headers.get('Authorization'));
       
       return next.handle(request);
     }
-  
-    return next.handle(req);
-  
+    else {
+      return next.handle(req);
+    }
 
   }
-
-
-
 }
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },

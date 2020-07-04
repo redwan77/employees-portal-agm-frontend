@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
-        console.log('unauthenticated user');
+       // console.log('unauthenticated user');
       }
     )
   }

@@ -25,13 +25,11 @@ export class EmployeesListComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    //if (this.authenticationService.getBasicAuthenticationCredentials() && this.authenticationService.getUserRole() != "ADMIN") {
+    // if (this.authenticationService.getBasicAuthenticationCredentials() && this.authenticationService.getUserRole() == "ADMIN") {
     this.createForm();
-    // console.log(this.authenticationService.getBasicAuthenticationCredentials());
-
     // }
     // else
-    //  this.router.navigate(['../../login'], { relativeTo: this.activatedRoute });
+    //   this.router.navigate(['../../login'], { relativeTo: this.activatedRoute });
   }
 
   public createForm() {
@@ -68,15 +66,12 @@ export class EmployeesListComponent implements OnInit {
 
 
     this.service.updateEmployeeWorkMode(
-      +(this.form.get('array') as FormArray).at(formGroupIndex).get('emplId').value
-      , mode)
+      +(this.form.get('array') as FormArray).at(formGroupIndex).get('emplId').value, mode)
       .subscribe(data => {
         this.employees = [];
         this.updateTrigger = [];
         this.employees = data;
-
         this.form.controls.array = this.fb.array([]);
-
         this.employees.forEach(e => {
           let array = this.form.get('array') as FormArray;
           array.push(this.fb.group({
@@ -85,8 +80,10 @@ export class EmployeesListComponent implements OnInit {
             markAsHoliday: [(e.isHoliday != null ? e.isHoliday : false)]
           }));
           this.updateTrigger.push(false);
-
-        });
+        },
+          error => {
+            console.log(error);
+          });
       });
   }
 

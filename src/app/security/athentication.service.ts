@@ -15,7 +15,7 @@ export class AthenticationService {
 
   public setBasicAuthenticationCredentials(login: string, password: string) {
     window.localStorage.removeItem(this.KEY);
-    window.localStorage.setItem(this.KEY, window.btoa(login + ':' + password));
+    window.localStorage.setItem(this.KEY,login + ':' + password);
 
   }
   private setUserLogin(login: string) {
@@ -39,8 +39,6 @@ export class AthenticationService {
   public getUserRole() {
     return window.localStorage.getItem(this.USER_ROLE);
   }
-
-
   public setUserRole(role: string) {
     window.localStorage.removeItem(this.USER_ROLE);
     window.localStorage.setItem(this.USER_ROLE, role);
