@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../shared/services/employee.service';
 
 @Component({
   selector: 'app-digital-clock',
@@ -8,14 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class DigitalClockComponent implements OnInit {
 
   currentTime =new  Date() ;
-  constructor(){
-  }
+  private isIn: boolean;
+
+
+  constructor(
+    private employeeService: EmployeeService
+  ) { }
 
   ngOnInit() {
-    // navigator.geolocation.getCurrentPosition((response)=>{
-    //   console.log(response);
-    // });
     this.updateTime();
+    this.setEmployeeStatus();
+
   }
 
   public updateTime(){
@@ -23,5 +27,11 @@ export class DigitalClockComponent implements OnInit {
     setTimeout(() => {
       this.updateTime();
     }, 1000);
+  }
+
+  setEmployeeStatus() {
+    this.employeeService.getEmployeeStatus().subscribe(data => {
+      this.isIn = data.isIn;
+    });
   }
 }

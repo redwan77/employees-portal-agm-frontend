@@ -27,6 +27,8 @@ export class WorkGealocalisationComponent implements OnInit {
     if (this.editMode) {
       this.lat = $event.coords.lat;
       this.long = $event.coords.lng;
+      this.form.get('atitude').setValue(this.lat);
+      this.form.get('langitude').setValue(this.long);
     }
   }
 
@@ -34,19 +36,19 @@ export class WorkGealocalisationComponent implements OnInit {
     this.form = this.formBuilder.group({
       langitude: [Validators.required],
       atitude: [Validators.required],
-      distance: [3,[Validators.required , Validators.min(10)]]
+      distance: [3, [Validators.required, Validators.min(10)]]
     });
   }
 
   changeMode() {
-    if(this.editMode){
+    if (this.editMode) {
       this.submitForm();
     }
     this.editMode = !this.editMode;
   }
 
   getCurrentLocation() {
-    if(this.editMode){
+    if (this.editMode) {
       navigator.geolocation.getCurrentPosition((localisation) => {
         this.lat = localisation.coords.latitude;
         this.long = localisation.coords.longitude;
@@ -56,7 +58,7 @@ export class WorkGealocalisationComponent implements OnInit {
     }
   }
 
-  loadGeolocalizationData(){
+  loadGeolocalizationData() {
     this.service.loadGeoData().subscribe(data => {
       this.lat = data.atitude;
       this.long = data.langitude;
@@ -69,8 +71,10 @@ export class WorkGealocalisationComponent implements OnInit {
 
   submitForm() {
     this.service.patchLocalisationConfiguration(this.form.value).subscribe(
+
       data => {
         console.log('success');
+        console.log(this.form.value);
       }
     );
   }

@@ -1,13 +1,25 @@
 <div class="clock">
+  <ul>
+    <li>
+      <span class="digit">{{ currentTime.getHours() }}</span
+      >Hours
+    </li>
+    <li>
+      <span class="digit">: {{ currentTime.getMinutes() }}</span
+      >Minutes
+    </li>
+    <li>
+      <span class="digit">: {{ currentTime.getSeconds() }}</span
+      >Seconds
+    </li>
 
-    <ul>
-        <li><span class="digit">{{currentTime.getHours()}}</span>Hours</li>
-        <li><span class="digit">: {{currentTime.getMinutes()}}</span>Minutes</li>
-        <li><span class="digit">: {{currentTime.getSeconds()}}</span>Seconds</li>
-        <li class="status-in"><i class="fas fa-flag status "></i> in
-        </li>
-    </ul>
-
+    <li *ngIf="isIn == true" class="status-in">
+      <i class="fas fa-flag status"></i> in
+    </li>
+    <li *ngIf="isIn == false" class="status-out">
+      <i class="fas fa-flag status"></i> out
+    </li>
+  </ul>
 </div>
 
 <app-flag></app-flag>
