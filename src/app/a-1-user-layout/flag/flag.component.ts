@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../shared/services/employee.service';
 import { EntranceRequest } from '../shared/models/entrance-request';
 import { LocationCordinates } from '../shared/models/location';
+import { ExitRequest } from '../shared/models/exit-request';
+import { EmployeeStatusService } from '../shared/services/employee-status.service';
 
 @Component({
   selector: 'app-flag',
@@ -12,9 +14,13 @@ export class FlagComponent implements OnInit {
 
   private dropToggled: boolean = false;
   private isIn: boolean;
+  private errorCase = false;
+  private errorMessage = '';
+  private breaks = ['breakfast break ', 'dinner break','smoking break'];
 
   constructor(
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private employeeStatusService: EmployeeStatusService
   ) { }
 
   ngOnInit() {
@@ -35,10 +41,26 @@ export class FlagComponent implements OnInit {
 
     this.employeeService.createEntranceRequest(request).subscribe(
       data => {
+        this.employeeStatusService.changeEmployeeState(true);
         console.log("entrance success");
       },
       error => {
-        console.log('entrance error');
+        this.errorCase = true;
+        this.errorMessage = "You can not apply entrance with your current position or sircumstances";
+      }
+    );
+  }
+
+  sendExitRequest(request: ExitRequest) {
+
+    this.employeeService.createExitRequest(request).subscribe(
+      data => {
+        this.employeeStatusService.changeEmployeeState(false);
+        console.log("exit success");
+      },
+      error => {
+        this.errorCase = true;
+        this.errorMessage = "You can not apply exit with your current position or sircumstances";
       }
     );
   }
@@ -58,6 +80,42 @@ export class FlagComponent implements OnInit {
     });
   }
 
+  submitExit() {
+
+    const currentLocation = new LocationCordinates();
+    const request = new ExitRequest();
+    request.golbalExit = true;
+
+    navigator.geolocation.getCurrentPosition((localisation) => {
+
+      currentLocation.latitude = localisation.coords.latitude;
+      currentLocation.longitude = localisation.coords.longitude;
+      request.location = currentLocation;
+
+      this.sendExitRequest(request);
+    });
+  }
+
+  submitPartialExit() {
+
+    const currentLocation = new LocationCordinates();
+    const request = new ExitRequest();
+    request.golbalExit = false;
+
+    navigator.geolocation.getCurrentPosition((localisation) => {
+
+      currentLocation.latitude = localisation.coords.latitude;
+      currentLocation.longitude = localisation.coords.longitude;
+      request.location = currentLocation;
+
+      this.sendExitRequest(request);
+    });
+  }
+
+  closeErrorBanner() {
+    this.errorCase = false;
+    this.errorMessage = "";
+  }
 
 
 

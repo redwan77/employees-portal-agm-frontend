@@ -1,30 +1,30 @@
-<div class="form-container">
+<form [formGroup]="requestForm" (ngSubmit)="submitForm()" class="form-container">
     <!-- we acn add a filed to add some justification time -->
     <div style="width: 100%;">
         <form style="width: 100%;">
             <div class="form-group">
                 <label for="exampleInputEmail1">Absence date</label>
-                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input formControlName="absenceDate" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="row">
                 <div class="form-group col-6">
                     <label for="exampleInputPassword1">From</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Hour : Minut">
+                    <input formControlName="absenceStart" type="time" class="form-control" id="exampleInputPassword1" placeholder="Hour : Minut">
                 </div>
                 <div class="form-group col-6">
                     <label for="exampleInputPassword1">To</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Hour : Minut">
+                    <input formControlName="absenceEnd" type="time" class="form-control" id="exampleInputPassword2" placeholder="Hour : Minut">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Reason</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <inpu formControlName="reason"t type="password" class="form-control" id="exampleInputPassword3">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Description</label>
-                <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+                <textarea formControlName="description" class="form-control" rows="3" placeholder="Description"></textarea>
             </div>
 
             <div class="d-flex justify-content-center ">
@@ -33,4 +33,4 @@
         </form>
     </div>
 
-</div>
+</form>

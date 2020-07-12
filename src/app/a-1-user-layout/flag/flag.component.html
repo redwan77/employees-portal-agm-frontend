@@ -1,4 +1,40 @@
 <div class="row btn-container" style="margin-top: 50px; height: 100px;">
+  <div
+    *ngIf="errorCase"
+    class="root"
+    style="display: flex; width: 100%; margin-bottom: 20px;"
+  >
+    <div
+      class="budget-item"
+      style="
+        display: flex;
+        width: 100%;
+        background-color: rgb(231, 42, 42);
+        padding: 10px;
+        border-radius: 5px;
+        color: cornsilk;
+      "
+    >
+      <div
+        class="description"
+        style="flex-grow: 1; font-size: 25px; margin-left: 10 px;"
+      >
+        <p style="text-align: center; padding: 0; margin: 0; padding-top: 5px;">
+          {{ errorMessage }}
+        </p>
+      </div>
+      <div
+        class="amount"
+        style="padding: 5px; border-radius: 3px; min-width: 50px;"
+      >
+        <button class="btn btn-lg btn-light" (click)="closeErrorBanner()">
+          <span style="font-weight: bolder;">
+            X
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
   <!-- entrance button -->
   <div class="col-3 p-0" style="padding-top: 50%;">
     <div (click)="submitEntrance()" class="btn btn-light flag-btn">
@@ -9,7 +45,7 @@
   <div class="col-1 invisible"></div>
   <!-- exit button -->
   <div class="col-3 p-0">
-    <div class="btn btn-light flag-btn">
+    <div (click)="submitExit()" class="btn btn-light flag-btn">
       <i class="fas fa-door-open red-icon"></i> Exit
     </div>
   </div>
@@ -26,7 +62,7 @@
     ></a>
   </div>
 </div>
-<div class="row" style="height: 250px;" *ngIf="dropToggled">
+<div class="row"  *ngIf="dropToggled">
   <!-- scroll colmun -->
   <div class="col-4 offset-6 p-0 d-flex" style="max-height: 300px;">
     <div
@@ -34,35 +70,8 @@
       style="width: 100%; overflow-y: scroll; max-height: 250px;"
     >
       <div class="list-group">
-        <a class="list-group-item list-group-item-action"
-          >Dapibus ac facilisis in</a
-        >
-        <a class="list-group-item list-group-item-action">Morbi leo risus</a>
-        <a class="list-group-item list-group-item-action"
-          >Porta ac consectetur ac</a
-        >
-        <a class="list-group-item list-group-item-action disabled"
-          >Vestibulum at eros</a
-        >
-        <a class="list-group-item list-group-item-action"
-          >Dapibus ac facilisis in</a
-        >
-        <a class="list-group-item list-group-item-action">Morbi leo risus</a>
-        <a class="list-group-item list-group-item-action"
-          >Porta ac consectetur ac</a
-        >
-        <a class="list-group-item list-group-item-action disabled"
-          >Vestibulum at eros</a
-        >
-        <a class="list-group-item list-group-item-action"
-          >Dapibus ac facilisis in</a
-        >
-        <a class="list-group-item list-group-item-action">Morbi leo risus</a>
-        <a class="list-group-item list-group-item-action"
-          >Porta ac consectetur ac</a
-        >
-        <a class="list-group-item list-group-item-action disabled"
-          >Vestibulum at eros</a
+        <a *ngFor="let break of breaks" class="list-group-item list-group-item-action" (click)="submitPartialExit()"
+          >{{break}}</a
         >
       </div>
     </div>

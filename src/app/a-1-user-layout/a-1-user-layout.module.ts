@@ -15,11 +15,21 @@ import { AbsenceVerificationComponent } from './absence-verification/absence-ver
 import { RecordHeaderComponent } from './record-header/record-header.component';
 
 @NgModule({
-  declarations: [MainComponent, FlagComponent, NavbarUserComponent, DigitalClockComponent, WeeklyRecordComponent, MonthlyRecordComponent, DailyRecordComponent, OptionsListComponent, AbsenceRequestComponent, AbsenceVerificationComponent, RecordHeaderComponent],
+  declarations: [
+    MainComponent,
+    FlagComponent, NavbarUserComponent,
+    DigitalClockComponent,
+    WeeklyRecordComponent,
+    MonthlyRecordComponent,
+    DailyRecordComponent,
+    OptionsListComponent,
+    AbsenceRequestComponent,
+    AbsenceVerificationComponent,
+    RecordHeaderComponent],
   imports: [
     CommonModule,
     A1UserLayoutRoutingModule
   ],
-  bootstrap:[MainComponent]
+  bootstrap: [MainComponent]
 })
 export class A1UserLayoutModule { }

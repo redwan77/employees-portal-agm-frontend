@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { LocationCordinates } from './location';
 
 export class EntranceRequest{
-    IssuerId =4 ;
+    IssuerId :number ;
     requestTime : Date;
     location : LocationCordinates = new LocationCordinates();
 }

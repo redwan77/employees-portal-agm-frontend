@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbsenceService } from '../shared/services/absence.service';
 
 @Component({
   selector: 'app-absence-request',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AbsenceRequestComponent implements OnInit {
 
-  constructor() { }
+  private requestForm: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private service: AbsenceService) { }
 
   ngOnInit() {
+  }
+
+  createForm() {
+    this.requestForm = this.fb.group(
+      {
+        absenceDate: [null],
+        absenceStart: [null],
+        absenceEnd: [null],
+        reason: [null],
+        description: [null]
+      }
+    );
+  }
+
+  submitForm() {
+     this.service.createAbsenceRequest(this.requestForm.value).subscribe(
+       data => {
+         alert("Request was sent succesfully !")
+       }, 
+       error =>{
+         alert("Request wasn't sent successfully !")
+       }
+     );
   }
 
 }
