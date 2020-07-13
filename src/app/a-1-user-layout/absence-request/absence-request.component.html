@@ -1,7 +1,8 @@
-<form [formGroup]="requestForm" (ngSubmit)="submitForm()" class="form-container">
+<div  class="form-container">
     <!-- we acn add a filed to add some justification time -->
     <div style="width: 100%;">
-        <form style="width: 100%;">
+        <form [formGroup]="requestForm" (ngSubmit)="submitForm()" style="width: 100%;">
+
             <div class="form-group">
                 <label for="exampleInputEmail1">Absence date</label>
                 <input formControlName="absenceDate" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -19,7 +20,7 @@
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Reason</label>
-                <inpu formControlName="reason"t type="password" class="form-control" id="exampleInputPassword3">
+                <input formControlName="reason" type="password" class="form-control" id="exampleInputPassword3">
             </div>
 
             <div class="form-group">
@@ -30,7 +31,8 @@
             <div class="d-flex justify-content-center ">
                 <button type="submit" class="btn btn-lg btn-success w-25">Confirm</button>
             </div>
+
         </form>
     </div>
 
-</form>
+</div>

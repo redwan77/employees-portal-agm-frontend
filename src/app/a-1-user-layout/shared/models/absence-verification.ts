@@ -1,9 +1,8 @@
-export class absebceVerification {
+export class absenceVerification {
 
     dateDay: Date;
     start: Date;
     end: Date;
-    duration: number;
     verification: string;
     verified: boolean;
 }

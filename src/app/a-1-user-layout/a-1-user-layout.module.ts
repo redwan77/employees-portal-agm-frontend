@@ -13,6 +13,7 @@ import { OptionsListComponent } from './options-list/options-list.component';
 import { AbsenceRequestComponent } from './absence-request/absence-request.component';
 import { AbsenceVerificationComponent } from './absence-verification/absence-verification.component';
 import { RecordHeaderComponent } from './record-header/record-header.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { RecordHeaderComponent } from './record-header/record-header.component';
     RecordHeaderComponent],
   imports: [
     CommonModule,
-    A1UserLayoutRoutingModule
+    A1UserLayoutRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   bootstrap: [MainComponent]
 })

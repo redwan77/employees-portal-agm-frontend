@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AbsenceService } from '../shared/services/absence.service';
+import { AbsenceService } from '../../shared/services/absence.service';
 
 @Component({
   selector: 'app-absence-request',
@@ -16,6 +16,7 @@ export class AbsenceRequestComponent implements OnInit {
     private service: AbsenceService) { }
 
   ngOnInit() {
+    this.createForm();
   }
 
   createForm() {
