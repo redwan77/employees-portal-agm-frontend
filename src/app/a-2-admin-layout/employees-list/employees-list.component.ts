@@ -40,6 +40,8 @@ export class EmployeesListComponent implements OnInit {
     this.service.getAllEmployees().subscribe(data => {
 
       this.employees = data;
+      console.log(data);
+      
 
       this.employees.forEach(e => {
         let array = this.form.get('array') as FormArray;

@@ -12,66 +12,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>John</td>
-                <td>12/02/2020</td>
-                <td>10:15</td>
-                <td>12:00</td>
-                <td>hostpital</td>
-                <td>i have an issue with my eyes</td>
+            <tr [ngClass]="{'accept': item.accepted === true, 'refuse': item.accepted === false}" *ngFor="let item of requests">
+                <td>{{item.user.name+' '+ item.user.lastName}}</td>
+                <td>{{item.absenceDate}}</td>
+                <td>{{item.absenceStart}}</td>
+                <td>{{item.absenceEnd}}</td>
+                <td>{{item.reason}}</td>
+                <td>{{item.description}}</td>
                 <td>
                     <div class="dropdown">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button  [disabled]="item.isSettled" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown button
-                  </button>
+                  </button >
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Accept</a>
-                            <a class="dropdown-item" href="#">Require a meeting</a>
-                            <a class="dropdown-item" href="#">Refuse</a>
+                            <a class="dropdown-item" (click)="updateRequest(item,true)">Accept</a>
+                            <a class="dropdown-item" (click)="updateRequest(item,null)">Require a meeting</a>
+                            <a class="dropdown-item" (click)="updateRequest(item,false)">Refuse</a>
                         </div>
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>John</td>
-                <td>12/02/2020</td>
-                <td>10:15</td>
-                <td>12:00</td>
-                <td>hostpital</td>
-                <td>i have an issue with my eyes</td>
-                <td>
-                    <div class="dropdown">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown button
-                </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Accept</a>
-                            <a class="dropdown-item" href="#">Require a meeting</a>
-                            <a class="dropdown-item" href="#">Refuse</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>12/02/2020</td>
-                <td>10:15</td>
-                <td>12:00</td>
-                <td>hostpital</td>
-                <td>i have an issue with my eyes</td>
-                <td>
-                    <div class="dropdown">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown button
-                </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Accept</a>
-                            <a class="dropdown-item" href="#">Require a meeting</a>
-                            <a class="dropdown-item" href="#">Refuse</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+          
         </tbody>
     </table>
 </div>

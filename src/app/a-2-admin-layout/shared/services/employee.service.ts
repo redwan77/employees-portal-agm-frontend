@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { API_KEY_EMPLOYEE } from '../configuration-data/api-keys';
 import { SuccessMessage } from '../responses/user-created-mesage';
 import { WorkmodeConfigurationDTO } from '../models/work-modeDTO';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class EmployeeService {
 
   updateEmployeeWorkMode(idEmployee: number, mode: WorkmodeConfigurationDTO): Observable<EmployeeAddDTO[]> {
     return this.http.put<EmployeeAddDTO[]>(API_KEY_EMPLOYEE + '/updateWorkMode/' + idEmployee, mode);
+  }
+
+  getEmployeesStatus():Observable<User[]>{
+    return this.http.get<User[]>(API_KEY_EMPLOYEE+'/allEmployeeStatus');
   }
 }
