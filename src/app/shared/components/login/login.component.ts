@@ -54,12 +54,12 @@ export class LoginComponent implements OnInit {
         this.authenticationService.setUsername(data.username + ' ' + data.lastname);
 
         this.authenticationService.setUserRole(data.role);
-        if (this.authenticationService.getUserRole() == 'ADMIN') {
+        if (this.authenticationService.getUserRole() == 'EMPLOYEE') {
           this.router.navigate(['../user'], { relativeTo: this.activatedRoute });
         }
-        // else if (this.authenticationService.getUserRole() == 'ADMIN') {
-        //   this.router.navigate(['../admin'], { relativeTo: this.activatedRoute });
-        // }
+        else if (this.authenticationService.getUserRole() == 'ADMIN') {
+          this.router.navigate(['../admin'], { relativeTo: this.activatedRoute });
+        }
       },
       error => {
        // console.log('unauthenticated user');
