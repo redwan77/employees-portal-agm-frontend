@@ -20,14 +20,14 @@ export class AbsenceVerificationsListComponent implements OnInit {
     this.service.getAllDelays().subscribe(
       data => {
         this.delays = data;
-        console.log(data);
       }
     );
   }
 
   updateverification(item: Delay, verified: boolean) {
     item.verified = verified;
-
+    console.log("is verified "+item.verified);
+    console.log(item);
     this.service.updateverification(item).subscribe(data => {
       this.delays = data;
         console.log(data);

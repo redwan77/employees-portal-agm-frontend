@@ -3,11 +3,12 @@ td>a {
 }
 
 .sattelled{
-    background-color: rgb(255, 153, 153);
+    background-color: rgb(159, 255, 167);
+
 }
 
-unsattelled{
-    background-color: rgb(159, 255, 167);
+.unsattelled{
+    background-color: rgb(255, 153, 153);
 }
 
 .normal{

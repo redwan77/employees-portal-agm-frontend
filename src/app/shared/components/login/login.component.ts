@@ -48,15 +48,18 @@ export class LoginComponent implements OnInit {
     let formValue: LoginForm = this.formLoagin.value;
     this.service.login(formValue).subscribe(
       (data: UserInformation) => {
+    
+        
         this.authenticationService.setBasicAuthenticationCredentials(formValue.login, formValue.password);
         this.authenticationService.setUsername(data.username + ' ' + data.lastname);
+
         this.authenticationService.setUserRole(data.role);
-        if (this.authenticationService.getUserRole() == 'EMPLOYEE') {
+        if (this.authenticationService.getUserRole() == 'ADMIN') {
           this.router.navigate(['../user'], { relativeTo: this.activatedRoute });
         }
-        else if (this.authenticationService.getUserRole() == 'ADMIN') {
-          this.router.navigate(['../admin'], { relativeTo: this.activatedRoute });
-        }
+        // else if (this.authenticationService.getUserRole() == 'ADMIN') {
+        //   this.router.navigate(['../admin'], { relativeTo: this.activatedRoute });
+        // }
       },
       error => {
        // console.log('unauthenticated user');

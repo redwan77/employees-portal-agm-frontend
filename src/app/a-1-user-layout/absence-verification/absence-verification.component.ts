@@ -20,19 +20,19 @@ export class AbsenceVerificationComponent implements OnInit {
     this.service.getUserDelays().subscribe(
       data => {
         this.delays = data;
+        console.log("test1");
         console.log(data);
-
       }
     );
   }
 
   confirmVerification(body: Delay, delayId: number) {
     //this.service
+    console.log(body);
     this.service.confirmVerification(body, delayId).subscribe(
       (data: Delay[]) => {
         this.delays = data;
       }
     );
   }
-
 }

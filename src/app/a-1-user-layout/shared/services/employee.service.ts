@@ -26,5 +26,7 @@ export class EmployeeService {
   public createExitRequest(request: ExitRequest) :Observable<any>{
     return this.http.post("http://localhost:9090/presence/exit",request );
   }
+
+
   
 }

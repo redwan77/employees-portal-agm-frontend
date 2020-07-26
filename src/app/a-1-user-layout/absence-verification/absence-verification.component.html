@@ -14,9 +14,8 @@
       <tbody class="scrollable-table">
         <tr
           [ngClass]="{
-            sattelled: delay.verified === true,
-            unsatteled: delay.verified === false,
-            normal: delay.satteled === false
+            sattelled: delay.verified == true,
+            unsattelled: delay.verified == false
           }"
           *ngFor="let delay of delays"
         >
@@ -29,39 +28,12 @@
               type="text"
               [name]="delay.id"
               [(ngModel)]="delay.verification"
-              [disabled]="delay.verification"
             />
           </td>
           <td>
             <button
-              [disabled]="delay.verification"
               class="btn btn-success"
               (click)="confirmVerification(delay, delay.id)"
-            >
-              Confirm
-            </button>
-          </td>
-        </tr>
-        <tr class="unsatteled">
-          <td>
-            08:00
-          </td>
-          <td>
-            09:10
-          </td>
-          
-          <td>
-            1.1
-          </td>
-          <td>
-            no
-          </td>
-          <td>
-            <input type="text" value="familly issue" />
-          </td>
-          <td>
-            <button
-               class="btn btn-lg btn-success"
             >
               Confirm
             </button>
