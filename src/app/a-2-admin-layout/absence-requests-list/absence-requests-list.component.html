@@ -46,10 +46,10 @@
           </div>
         </td>
         <td>
-          <span *ngIf="item.accepted === true" class="text-danger"
+          <span *ngIf="item.accepted === false" class="text-danger"
             >Refused</span
           >
-          <span *ngIf="item.accepted === false" class="text-success"
+          <span *ngIf="item.accepted === true" class="text-success"
             >Accepted</span
           >
           <span *ngIf="item.accepted === null" class="text-dark"

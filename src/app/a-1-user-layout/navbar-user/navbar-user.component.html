@@ -35,7 +35,15 @@
       </li>
       <li class="nav-item">
         <a class="nav-link"
-          ><i class="fas fa-globe-americas pr-1"></i><span [ngClass]="{'text-danger': notifsNumber >1}">Notifications </span> <span *ngIf="notifsNumber !=0">{{'('+notifsNumber+')'}}</span></a
+            routerLink="./notifications"
+            routerLinkActive="router-link-active" 
+          ><i [ngClass]="{'text-danger':  notifsNumber > 0}" class="fas fa-globe-americas pr-1 "></i
+          ><span style="font-size: medium;" [ngClass]="{ 'text-danger': notifsNumber > 0 }"
+            >Notifications
+          </span>
+          <span class="text-danger" style="font-size: medium; " *ngIf="notifsNumber != 0">{{
+            "(" + notifsNumber + ")"
+          }}</span></a
         >
       </li>
     </ul>

@@ -8,44 +8,49 @@ import { WeeklyRecordComponent } from './weekly-record/weekly-record.component';
 import { MonthlyRecordComponent } from './monthly-record/monthly-record.component';
 import { MainComponent } from './main/main.component';
 import { OptionsListComponent } from './options-list/options-list.component';
+import { NotificationesComponent } from './notificationes/notificationes.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:MainComponent,
-    children:[
+    path: '',
+    component: MainComponent,
+    children: [
       {
         path: 'home',
-        component:DigitalClockComponent
+        component: DigitalClockComponent
       },
       {
         path: 'absence-verification',
-        component:AbsenceVerificationComponent
+        component: AbsenceVerificationComponent
       },
       {
         path: 'absence-request',
-        component:AbsenceRequestComponent
+        component: AbsenceRequestComponent
       },
       {
         path: 'daily',
-        component:DailyRecordComponent
+        component: DailyRecordComponent
       },
       {
         path: 'weekly',
-        component:WeeklyRecordComponent
+        component: WeeklyRecordComponent
       },
       {
         path: 'monthly',
-        component:MonthlyRecordComponent
+        component: MonthlyRecordComponent
       },
       {
         path: 'options',
-        component:OptionsListComponent
+        component: OptionsListComponent
       },
       {
-        path:'',
-        redirectTo:'home',
-        pathMatch:'full'
+        path: 'notifications',
+        component: NotificationesComponent
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
       }
     ]
   },

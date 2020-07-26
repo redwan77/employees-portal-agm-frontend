@@ -11,4 +11,5 @@ export class AbsenceRequest {
     isSettled : boolean;
     accepted: boolean
     user : any;
+    verified : boolean;
 }

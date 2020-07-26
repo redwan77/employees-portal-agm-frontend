@@ -22,11 +22,10 @@ export class AbsenceRequestsListComponent implements OnInit {
   }
 
   updateRequest(body :AbsenceRequest,state :boolean){
+    
     body.accepted= state ;
-    body.isSettled= true ;
-    if(state === null){
-      body.isSettled= null ;
-    }
+    console.log(body.accepted);
+
     this.service.updateAbsenceRequest(body).subscribe((data :AbsenceRequest[]) =>{
       this.requests = data ;
     });

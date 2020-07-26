@@ -25,6 +25,7 @@ export class NavbarUserComponent implements OnInit, ILogout {
 
   ngOnInit() {
     this.username =  this.authenticationService.getUsername();
+    this.refreshNotifications();
   }
 
   logout() {
@@ -36,7 +37,8 @@ export class NavbarUserComponent implements OnInit, ILogout {
   public refreshNotifications(){
     setTimeout(
         () => {
-          this.getUserNotificationsnumber()
+          this.getUserNotificationsnumber();
+          this.refreshNotifications();
         },
         5000
     );

@@ -14,6 +14,7 @@ import { AbsenceRequestComponent } from './absence-request/absence-request.compo
 import { AbsenceVerificationComponent } from './absence-verification/absence-verification.component';
 import { RecordHeaderComponent } from './record-header/record-header.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NotificationesComponent } from './notificationes/notificationes.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     OptionsListComponent,
     AbsenceRequestComponent,
     AbsenceVerificationComponent,
-    RecordHeaderComponent],
+    RecordHeaderComponent,
+    NotificationesComponent
+    ],
   imports: [
     CommonModule,
     A1UserLayoutRoutingModule,
