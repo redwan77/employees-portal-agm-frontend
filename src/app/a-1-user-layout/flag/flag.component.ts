@@ -16,7 +16,7 @@ export class FlagComponent implements OnInit {
   private isIn: boolean;
   private errorCase = false;
   private errorMessage = '';
-  private breaks = ['breakfast break ', 'dinner break','smoking break'];
+  private breaks = ['breakfast break ', 'dinner break','small break'];
 
   constructor(
     private employeeService: EmployeeService,

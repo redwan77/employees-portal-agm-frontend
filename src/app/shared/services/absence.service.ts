@@ -6,6 +6,7 @@ import { ABSENCE_REQUEST_ENDPOINT, ABSENCE_VERIFICATION_ENDPOINT, USER_DELAYS_EN
 import { absenceVerification } from '../../a-1-user-layout/shared/models/absence-verification';
 import { Delay } from '../models/delay';
 import { AbsenceRequest } from 'src/app/a-2-admin-layout/shared/models/absence-request';
+import { MACHINE_KEY } from 'src/app/a-2-admin-layout/shared/configuration-data/api-keys';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,12 @@ export class AbsenceService {
     return this.http.put(UPDATE_REQUEST, body);
   }
 
+  updateverification(body : Delay): Observable<any>{
+    return this.http.put(MACHINE_KEY+'/absence/updateDelay', body);
+  }
 
+  public getAllDelays(): Observable<any> {
+    return this.http.get<any>(MACHINE_KEY+'/absence/allDelays');
+  }
 
 }

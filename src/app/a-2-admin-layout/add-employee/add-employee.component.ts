@@ -28,7 +28,7 @@ export class AddEmployeeComponent implements OnInit {
     this.employeeForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.pattern('[a-zA-Z]+')]],
       lastName: [null, [Validators.required, Validators.pattern('[a-zA-Z]+')]],
-      phoneNumber: [null, [Validators.required, Validators.pattern('[a-zA-Z]+')]],
+      phoneNumber: [null, [Validators.required, Validators.pattern('[0-9]+')]],
       email: [null, [Validators.required, Validators.email]],
       adress: [null, [Validators.required]],
       isRemote: [false, []]

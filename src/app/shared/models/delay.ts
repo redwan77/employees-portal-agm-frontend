@@ -1,3 +1,5 @@
+import { User } from 'src/app/a-2-admin-layout/shared/models/user';
+
 export class Delay {
 
     id: number;
@@ -7,5 +9,6 @@ export class Delay {
     verified: boolean;
     isSatteled: boolean;
     verification: string;
-    date : Date
+    date : Date;
+    user: User ;
 }

@@ -16,6 +16,8 @@ export class AbsenceRequestsListComponent implements OnInit {
   ngOnInit() {
     this.service.getAllAbsencerequest().subscribe(data => {
       this.requests = data;
+      console.log(data);
+      
     });
   }
 

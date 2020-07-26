@@ -12,8 +12,8 @@
     <tbody>
       <tr *ngFor="let item of employees">
         <td>{{item.name +' '+ item.lastName}}</td>
-        <td>{{item.worked == null ? 'false' :item.worked }}</td>
-        <td>{{item.entered == false ? 'false' : item.worked}}</td>
+        <td>{{item.worked == null ? 'false' : item.worked }}</td>
+        <td>{{item.entered == null ? 'false' : item.worked}}</td>
         <td>
           <div class="dot" [ngClass]="{'out': item.isOut , 'in': !item.isOut}"></div>
         </td>
@@ -27,7 +27,7 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Dropdown button
+              actions
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" >Require a meeting</a>
